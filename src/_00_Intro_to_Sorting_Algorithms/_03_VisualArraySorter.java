@@ -1,5 +1,7 @@
 package _00_Intro_to_Sorting_Algorithms;
 
+import java.awt.Color;
+
 import processing.core.PApplet;
 
 /*
@@ -41,19 +43,29 @@ public class _03_VisualArraySorter extends PApplet {
     static final int WIDTH = 600;
     static final int HEIGHT = 400;
 
+    int[] array;
     @Override
     public void settings() {
-        
+        size(500,500);
     }
 
     @Override
     public void setup() {
-        
+        array = new int[50];
+        for(int i : array) {
+        	i = (int)random(HEIGHT);
+        }
+        noStroke();
     }
 
     @Override
     public void draw() {
-        
+        background(0,123,167);
+        fill(200,200,50);
+        for(int i : array) {
+        rect(i * (WIDTH/array.length), HEIGHT, (WIDTH/array.length), -array[i]);
+        }
+        //stepSort(); HERE
     }
 
     static public void main(String[] passedArgs) {
