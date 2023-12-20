@@ -24,8 +24,7 @@ import javax.swing.JOptionPane;
 public class _00_SortingAlgorithms {
     public static void main(String[] args) {
         String[] options = new String[] {"Bubble", "Bogo", "Thanos", "Heap", "Merge", "Quick","Insertion", "Selection"};
-        int input = JOptionPane.showOptionDialog(null, "Choose a sorting algorithm to visualize", "Sorting Algorithms", 0, 
-                -1, null, options, 0);
+        int input = JOptionPane.showOptionDialog(null, "Choose a sorting algorithm to visualize", "Sorting Algorithms", 0, -1, null, options, 0);
 
         String choice = options[input];
 

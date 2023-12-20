@@ -40,53 +40,61 @@ import processing.core.PApplet;
  *     mousePressed variable
  */
 public class _03_VisualArraySorter extends PApplet {
-    static final int WIDTH = 600;
-    static final int HEIGHT = 400;
+	static final int WIDTH = 600;
+	static final int HEIGHT = 400;
 
-    int[] array;
-    @Override
-    public void settings() {
-        size(500,500);
-    }
+	int[] array;
 
-    @Override
-    public void setup() {
-        array = new int[50];
-        for(int i : array) {
-        	i = (int)random(HEIGHT);
-        }
-        noStroke();
-    }
+	@Override
+	public void settings() {
+		size(500, 500);
+	}
 
-    @Override
-    public void draw() {
-        background(0,123,167);
-        fill(200,200,50);
-        for(int i : array) {
-        rect(i * (WIDTH/array.length), HEIGHT, (WIDTH/array.length), -array[i]);
-        }
-        //stepSort(); HERE
-    }
+	@Override
+	public void setup() {
+		array = new int[50];
+		randomizeArray(array);
+		noStroke();
+	}
 
-    static public void main(String[] passedArgs) {
-        PApplet.main(_03_VisualArraySorter.class.getName());
-    }
-    
-    /*********************** DO NOT MODIFY THE CODE BELOW ********************/
-    
-    int startIndex = 1;
+	@Override
+	public void draw() {
+		background(0, 123, 167);
+		fill(200, 200, 50);
+		for (int i = 0; i < array.length; i++) {
+			rect(i * (WIDTH / array.length), HEIGHT, (WIDTH / array.length), -array[i]);
+		}
+		stepSort(array);
+		if (mousePressed) {
+			randomizeArray(array);
+		}
+	}
 
-    void stepSort(int[] arr) {
-      for (int i = startIndex; i < arr.length; i++) {
-        if (arr[i - 1] > arr[i]) {
-          int t = arr[i];
-          arr[i] = arr[i - 1];
-          arr[i - 1] = t;
+	void randomizeArray(int arr[]) {
+		for (int i = 0; i < arr.length; i++) {
+			arr[i] = (int) random(HEIGHT);
+		}
+	}
 
-          startIndex = i;
-          return;
-        }
-      }
-      startIndex = 1;
-    }
+	static public void main(String[] passedArgs) {
+		PApplet.main(_03_VisualArraySorter.class.getName());
+	}
+
+	/*********************** DO NOT MODIFY THE CODE BELOW ********************/
+
+	int startIndex = 1;
+
+	void stepSort(int[] arr) {
+		for (int i = startIndex; i < arr.length; i++) {
+			if (arr[i - 1] > arr[i]) {
+				int t = arr[i];
+				arr[i] = arr[i - 1];
+				arr[i - 1] = t;
+
+				startIndex = i;
+				return;
+			}
+		}
+		startIndex = 1;
+	}
 }
