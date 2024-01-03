@@ -1,6 +1,7 @@
 package _01_Sorting_Algorithms;
 
 import java.lang.reflect.Array;
+import java.util.Random;
 
 public class ThanosSorter extends Sorter {
 	public ThanosSorter() {
@@ -40,20 +41,51 @@ public class ThanosSorter extends Sorter {
 	 */
 	@Override
 	void sort(int[] array, SortingVisualizer display) {
-		while(!isSorted(array)) {
-			for(int i = 0; i < array.length; i++) {
-				//here
+		Random ran = new Random();
+		int start = 0;
+		int end = array.length;
+		int center = (end - start) / 2;
+		while (!isSorted(array)) {
+			if (ran.nextInt(2) == 0) {
+				delete(array, start, center);
+				start = center;
+			} else {
+				delete(array, center, end);
+				end = center;
+			}
+			center = (end - start) / 2 + start;
+			display.updateDisplay();
+
+			
+			
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
+
 	}
 
 	private boolean isSorted(int[] array) {
 		for (int i = 0; i < array.length - 1; i++) {
+			if(array[i] == 0 || array[i + 1] == 0) {
+				continue;
+			}
 			if (array[i] > array[i + 1]) {
 				return false;
 			}
 		}
 		return true;
+	}
+
+	private void delete(int[] array, int start, int end) {
+		if (array.length != 1) {
+			for (int i = start; i < end; i++) {
+				array[i] = 0;
+			}
+		}
 	}
 
 }
