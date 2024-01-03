@@ -12,6 +12,22 @@ public class Algorithms {
     }
     
     public static int findBrokenEgg(List<String> eggs) {
-        return 0;
+    	for(int i = 0; i < eggs.size(); i++) {
+    		if(eggs.get(i).equals("cracked")) {
+    			return i;
+    		}
+    	}
+        return -1;
     }
+    
+   public static int countPearls(List<Boolean> oysters) {
+	   int count = 0;
+	   for(int i = 0; i < oysters.size(); i++) {
+		   if(oysters.get(i) == true) {
+			   count++;
+		   }
+	   }
+	   return count;
+   }
+   
 }
