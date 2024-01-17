@@ -46,7 +46,7 @@ public class _00_JavaClassSortDemo {
          */
         ArrayList<Double> doubleList = new ArrayList<Double>();
         doubleList.add(5.0);
-        doubleList.add(3.0);
+        doubleList.add(3.0);	
         doubleList.add(2.0);
         doubleList.add(4.0);
         doubleList.add(0.0);
