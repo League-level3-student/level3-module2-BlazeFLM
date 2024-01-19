@@ -28,19 +28,19 @@ public class _00_MoreAndMoreTests {
      assertFalse(Algorithms.isPrime(527));
    }
 //
-//   @Test
-//   public void SquareTest() {
-//     assertTrue(Algorithms.isSquare(4));
-//     assertTrue(Algorithms.isSquare(144));
-//     assertTrue(Algorithms.isSquare(64));
-//     assertTrue(Algorithms.isSquare(10201));
-//     assertTrue(Algorithms.isSquare(1));
-//     assertFalse(Algorithms.isSquare(3));
-//     assertFalse(Algorithms.isSquare(22));
-//     assertFalse(Algorithms.isSquare(143));
-//   }
+   @Test
+   public void SquareTest() {
+     assertTrue(Algorithms.isSquare(4));
+     assertTrue(Algorithms.isSquare(144));
+     assertTrue(Algorithms.isSquare(64));
+     assertTrue(Algorithms.isSquare(10201));
+     assertTrue(Algorithms.isSquare(1));
+     assertFalse(Algorithms.isSquare(3));
+     assertFalse(Algorithms.isSquare(22));
+     assertFalse(Algorithms.isSquare(143));
+   }
 //
-//   @Test
+   //@Test
 //   public void CubeTest() {
 //     assertTrue(Algorithms.isCube(27));
 //     assertTrue(Algorithms.isCube(216));
